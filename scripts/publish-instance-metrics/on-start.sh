@@ -22,6 +22,6 @@ sed -i -- "s/MyNotebookInstance/$NOTEBOOK_INSTANCE_NAME/g" amazon-cloudwatch-age
 
 echo "Starting the CloudWatch agent on the Notebook Instance."
 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a \
-    fetch-config -m ec2 -c file://$(pwd)/amazon-cloudwatch-agent.json -s
+    append-config -m ec2 -c file://$(pwd)/amazon-cloudwatch-agent.json -s
 
 rm amazon-cloudwatch-agent.json
